@@ -1,0 +1,25 @@
+## Bandit Level 6 → Level 7
+
+**Challenge:** Find a file with these properties:
+- owned by user bandit7
+- owned by group bandit6
+- 33 bytes in size
+
+**Solution:**
+```bash
+find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+cat /var/lib/dpkg/info/bandit7.password
+```
+
+**Explanation:**
+- `find /:
+     1. -type f = searches for files ONLY
+     2. -user bandit7 = searches for files owned by the user bandit7
+     3. -group bandit6 = searches for files owned by the group bandit6
+     4. -size 33c = searches for files with 33 bytes
+- 2>/devnull = to remove error message... how?
+    --> /dev/null stores error message.
+    --> 2 refers to the standard error message
+    --> ">" redirects the error message
+
+**Password:** Bmnnvf82KzQlfxgAI2d1zYbr1u9pr3E3
